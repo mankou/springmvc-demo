@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	
+	<!-- spring 配置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+         	/WEB-INF/config/applicationContext-local.xml
+         </param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	
+	<!-- spring mvc 配置 -->
+	<servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>
+				/WEB-INF/config/mvc-dispatcher-servlet.xml
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- log4j配置 -->
+	<context-param>
+      <param-name> log4jConfigLocation</param-name>
+      <param-value>/WEB-INF/config/log4j.xml</param-value>
+   </context-param>
+   <context-param>
+      <param-name> log4jRefreshInterval</param-name>
+      <param-value>6000</param-value>
+   </context-param>
+    <listener>
+      <listener-class>
+         org.springframework.web.util.Log4jConfigListener
+      </listener-class>
+   </listener>
+   
+</web-app>
