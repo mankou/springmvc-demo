@@ -173,7 +173,7 @@ find . -name "*.projectg" |xargs -n5 rm -rf
 
 echo 正在处理 pom.xml
 find . -name "pom.xml" |xargs sed -ig "s/$project_name_old/$project_name_new/g"
-find . -name "pom.xml" |xargs sed -ig "s/$group_id_old/$group_id_old/g"
+find . -name "pom.xml" |xargs sed -ig "s/$group_id_old/$group_id_new/g"
 find . -name "pom.xmlg" |xargs -n5 rm -rf
 
 echo 正在处理 xml文件
