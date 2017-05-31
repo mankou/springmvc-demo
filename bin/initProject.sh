@@ -172,8 +172,10 @@ find . -name "*.project" |xargs sed -ig "s/$project_name_old/$project_name_new/g
 find . -name "*.projectg" |xargs -n5 rm -rf
 
 echo 正在处理 pom.xml
-find . -name "pom.xml" |xargs sed -ig "s/$project_name_old/$project_name_new/g"
+# 注 对于包名中有. 而在正在表达式中 .正好又是特殊字符代表匹配所有字符,这里没有转义,有可能有问题 但既然.可匹配所有字符,当然可以匹配自己了,所以应该没有问题
+# 另我先替换groupId 最后替换project名称(artifactId) 也有用意 我怕groupId中包含project名先替换了导致错误
 find . -name "pom.xml" |xargs sed -ig "s/$group_id_old/$group_id_new/g"
+find . -name "pom.xml" |xargs sed -ig "s/$project_name_old/$project_name_new/g"
 find . -name "pom.xmlg" |xargs -n5 rm -rf
 
 echo 正在处理 xml文件
