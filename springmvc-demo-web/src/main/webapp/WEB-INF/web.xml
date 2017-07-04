@@ -49,4 +49,12 @@
       </listener-class>
    </listener>
    
+   
+   <!-- 用于支持：取出请求的ip url等信息 -->
+   <listener>  
+        <listener-class>  
+            org.springframework.web.context.request.RequestContextListener  
+        </listener-class>  
+  </listener>
+   
 </web-app>

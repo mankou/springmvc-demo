@@ -1,21 +1,21 @@
 package mang.demo.springmvc.common.exception;
 
-import mang.demo.springmvc.common.util.Constant;
 
 import mang.util.common.NullUtil;
+
 
 public class ErrorMessageHandle {
 	
 	/**
 	 * 处理错误信息
 	 * */
-	public static String processErrorMessage(int code,String message){
-		String baseMessage=Constant.exceptionCode.errMessageMap.get(code);
+	public static String processErrorMessage(ExceptionInterface exceptionInterface,String runMesage){
+		String baseMessage=exceptionInterface.getMessage();
 		String result;
-		if(NullUtil.isNull(message)){
-			result=message;
+		if(NullUtil.isNull(runMesage)){
+			result=baseMessage;
 		}else{
-			result=baseMessage+"("+message+")";
+			result=baseMessage+"("+runMesage+")";
 		}
 		return result;
 	}
