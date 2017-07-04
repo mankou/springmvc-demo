@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +25,19 @@ public class ServerIndexController {
 	
 	@Autowired
 	private TestService testService;
+	
+	
+	/**
+	 * 演示post请求 主要用于测试程序之间的联通性
+	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/testPost/
+	 */
+	@RequestMapping(value = "/testPost", method = RequestMethod.POST)
+	@ResponseBody
+	public Object testPost(@RequestBody TestUser testUser) {
+		logger.info("[测试]测试post请求");
+		return testUser;
+	}
+	
 	
 	/**
 	 * 演示一般的get请求(不查数据库)
