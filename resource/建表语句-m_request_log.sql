@@ -12,6 +12,7 @@ create table m_request_log(
        out_code number(2),
        out_msg varchar2(2048),
        out_data varchar2(2048),
+       program_version varchar2(256),
        return_type varchar2(32)
 );
 
@@ -31,7 +32,7 @@ comment on column m_request_log.return_type is '返回方式 0正常返回 1业务异常 2运
 comment on column m_request_log.run_time_count is '运行时长(毫秒)';
 comment on column m_request_log.request_addr is '请求地址';
 comment on column m_request_log.request_method is '请求方法(GET POST)';
-
+comment on column m_request_log.program_version is '程序版本';
 
 drop sequence s_m_request_log;
 create sequence s_m_request_log

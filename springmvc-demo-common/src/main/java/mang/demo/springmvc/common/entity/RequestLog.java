@@ -39,8 +39,6 @@ public class RequestLog implements Serializable {
      */
     @Column(name = "REQUEST_METHOD", nullable = true)    
     private String requestMethod ;
-    
-    
 
     /**
      * requestIp
@@ -105,6 +103,14 @@ public class RequestLog implements Serializable {
      */
     @Column(name = "RUN_TIME_COUNT", nullable = true) 
     private Long runTimeCount;
+    
+    
+    /**
+     * runTimeCount
+     */
+    @Column(name = "PROGRAM_VERSION", nullable = true) 
+    private String programVersion;
+    
 
 	public Long getId() {
 		return id;
@@ -208,6 +214,14 @@ public class RequestLog implements Serializable {
 
 	public void setRequestMethod(String requestMethod) {
 		this.requestMethod = requestMethod;
+	}
+
+	public String getProgramVersion() {
+		return programVersion;
+	}
+
+	public void setProgramVersion(String programVersion) {
+		this.programVersion = programVersion;
 	}
   
 }

@@ -5,7 +5,7 @@ public class MyVersion {
 	/**
 	 * 当前版本
 	 * */
-	public static final Version CURRENT_VERSION=Version.V0_0_2_SNAPSHOT;
+	public static final Version CURRENT_VERSION=Version.V0_0_1_SNAPSHOT;
 	
 	/**
 	 * 当前版本号
