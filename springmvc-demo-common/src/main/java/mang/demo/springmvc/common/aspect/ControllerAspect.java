@@ -143,8 +143,7 @@ public class ControllerAspect {
 
 			Timestamp endDate = TimestampUtil.getCurrentTime();
 			Long runTime = endDate.getTime() - startDate.getTime();
-			logger.info("[" + classSimpleName + "." + method + "] " + "执行时长: " + runTime);
-			logger.info("version:"+MyVersion.getCurrentVersionDesc());
+			logger.info("[" + classSimpleName + "." + method + "] " + "执行时长: " + runTime+" version:"+MyVersion.getCurrentVersionDesc());
 			
 			//字符串截取
 			inStr=StringUtil.subString(inStr, Constant.defaultMaxLength);
