@@ -27,5 +27,10 @@ public class Constant {
 		public static final String runtimeError="2";
 	}
 	
+	/**
+	 * 默认最大长度
+	 * */
+	public static int defaultMaxLength=2000;
+	
 	
 }

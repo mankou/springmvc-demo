@@ -24,6 +24,7 @@ import mang.demo.springmvc.common.service.RequestService;
 import mang.demo.springmvc.common.util.Constant;
 import mang.demo.springmvc.common.util.MyVersion;
 import mang.util.common.JsonUtil;
+import mang.util.common.StringUtil;
 import mang.util.common.TimestampUtil;
 
 @Aspect
@@ -144,6 +145,11 @@ public class ControllerAspect {
 			Long runTime = endDate.getTime() - startDate.getTime();
 			logger.info("[" + classSimpleName + "." + method + "] " + "执行时长: " + runTime);
 			logger.info("version:"+MyVersion.getCurrentVersionDesc());
+			
+			//字符串截取
+			inStr=StringUtil.subString(inStr, Constant.defaultMaxLength);
+			outMsg=StringUtil.subString(outMsg, Constant.defaultMaxLength);
+			outData=StringUtil.subString(outData, Constant.defaultMaxLength);
 
 			RequestLog requestLog = new RequestLog();
 			requestLog.setClassSimpleName(classSimpleName);
