@@ -26,4 +26,11 @@
     <!-- 默认扫描的包路径 不要配置全路径 我不想把service层的注解也扫描进来 那样有可能影响事务 -->
     <context:component-scan base-package="mang.demo.springmvc.server.controller"/>
     <context:component-scan base-package="mang.demo.springmvc.review.web.controller"/>
+    
+    <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="mang.demo.springmvc.common.filter.HandlerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
