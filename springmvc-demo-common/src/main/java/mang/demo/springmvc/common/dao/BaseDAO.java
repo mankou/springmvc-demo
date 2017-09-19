@@ -20,10 +20,15 @@ public interface BaseDAO<T> {
 	 
 	 public T delete(T entity);
 	 
+	 public void deleteList(List<T> list);
+	 
 	 
 	 public T findById(Serializable id);
 	 
 	 
 	 public List<T> findByHQL(String hql, Object... params);
+	 
+	 
+	 public <T> List<T> queryAll(T clazz);
 	 
 }

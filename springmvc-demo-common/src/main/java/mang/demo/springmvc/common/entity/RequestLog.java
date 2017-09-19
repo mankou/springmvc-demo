@@ -3,18 +3,16 @@ package mang.demo.springmvc.common.entity;
 
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 
 @Entity
@@ -23,10 +21,10 @@ public class RequestLog implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-	@Column(name = "id", nullable = true)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
-  	@SequenceGenerator(name="seq", sequenceName="s_m_request_log")
-    private Long id;
+    @Column(name = "id", nullable = true)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    private String id;
 
     /**
      * requestDate
@@ -112,11 +110,11 @@ public class RequestLog implements Serializable {
     private String programVersion;
     
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

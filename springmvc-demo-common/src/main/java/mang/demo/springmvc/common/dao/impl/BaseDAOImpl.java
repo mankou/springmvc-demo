@@ -14,6 +14,9 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 import mang.demo.springmvc.common.dao.BaseDAO;
 
+
+
+
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public class BaseDAOImpl<T> extends HibernateDaoSupport implements BaseDAO<T> {
 	private Class clazz;
@@ -24,9 +27,7 @@ public class BaseDAOImpl<T> extends HibernateDaoSupport implements BaseDAO<T> {
 	}
 
 	public BaseDAOImpl() {
-		// ParameterizedType type =
-		// (ParameterizedType)this.getClass().getGenericSuperclass();
-		// clazz = (Class) type.getActualTypeArguments()[0];
+		
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class BaseDAOImpl<T> extends HibernateDaoSupport implements BaseDAO<T> {
 			public Object doInHibernate(Session session) throws HibernateException {
 				for (int i = 0; i < lis.size(); i++) {
 					T t = lis.get(i);
-					session.save(t);
+					session.saveOrUpdate(t);
 					if (i % 100 == 0) {
 						session.flush();
 						session.clear();
@@ -152,6 +153,22 @@ public class BaseDAOImpl<T> extends HibernateDaoSupport implements BaseDAO<T> {
 			query.setParameter(i, params);
 		}
 		return query.list();
+	}
+
+	@Override
+	public void deleteList(List<T> list) {
+		for(T t:list){
+			this.delete(t);
+		}
+	}
+
+	@Override
+	public <T> List<T> queryAll(T clazz) {
+		String clazzName = clazz.getClass().getSimpleName();
+		String hql = "from " + clazzName+"";
+		Query query=this.getSession().createQuery(hql);
+		List lis=query.list();
+		return lis;
 	}
 
 }
