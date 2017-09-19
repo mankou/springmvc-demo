@@ -34,13 +34,13 @@ comment on column m_request_log.request_addr is '请求地址';
 comment on column m_request_log.request_method is '请求方法(GET POST)';
 comment on column m_request_log.program_version is '程序版本';
 
-drop sequence s_m_request_log;
-create sequence s_m_request_log
-minvalue 1
-maxvalue 999999999999999999999999999
-start with 1
-increment by 1
-cache 20;
+--drop sequence s_m_request_log;
+--create sequence s_m_request_log
+--minvalue 1
+--maxvalue 999999999999999999999999999
+--start with 1
+--increment by 1
+--cache 20;
 
 
 

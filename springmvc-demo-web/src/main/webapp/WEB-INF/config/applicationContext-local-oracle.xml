@@ -32,8 +32,8 @@
 		destroy-method="close">
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:ORCL" />
-		<property name="user" value="yh" />
-		<property name="password" value="yh" />
+		<property name="user" value="test" />
+		<property name="password" value="test" />
 		<property name="initialPoolSize" value="3" />
 		<property name="minPoolSize" value="2" />
 		<property name="maxPoolSize" value="5" />
