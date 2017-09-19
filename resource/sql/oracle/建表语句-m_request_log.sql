@@ -1,6 +1,6 @@
 drop table m_request_log;
 create table m_request_log(
-       id number,
+       id varchar2(32),
        request_date date,
        run_time_count number,
        request_method varchar2(32),
@@ -42,4 +42,19 @@ start with 1
 increment by 1
 cache 20;
 
+
+
+
+drop table t_user;
+create table t_user(
+       id number,
+       code varchar2(32),
+       name varchar2(32),
+       primary key(id)
+);
+
+insert into t_user(id,code,name) values(-1,'1code','1name');
+insert into t_user(id,code,name) values(-2,'2code','2name');
+
+commit;
 
