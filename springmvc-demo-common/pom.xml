@@ -73,7 +73,13 @@
 			<artifactId>hibernate-c3p0</artifactId>
 		</dependency>
 
-		<!-- hibernate start -->
+		<!-- hibernate end -->
+
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<classifier>jdk15</classifier>
+		</dependency>
 
 		<dependency>
 			<groupId>com.oracle</groupId>

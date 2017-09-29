@@ -5,29 +5,35 @@
 	<packaging>jar</packaging>
 	<name>springmvc-demo-server</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<parent>
 		<groupId>mang.demo</groupId>
 		<artifactId>springmvc-demo-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	
-	
+
+
 	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>mang.demo</groupId>
 			<artifactId>springmvc-demo-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mang.util</groupId>
 			<artifactId>mang-util</artifactId>
 			<version>3.0.0-SNAPSHOT</version>
 		</dependency>
-		
+
 	</dependencies>
-	
+
 
 </project>

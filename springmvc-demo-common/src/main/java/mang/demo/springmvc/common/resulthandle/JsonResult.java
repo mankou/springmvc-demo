@@ -5,6 +5,9 @@ public class JsonResult<T> {
     private String message="ok";
     private T data;
   
+    public JsonResult(){
+    	
+    }
  
     public JsonResult(T data) {
         this.data = data;
