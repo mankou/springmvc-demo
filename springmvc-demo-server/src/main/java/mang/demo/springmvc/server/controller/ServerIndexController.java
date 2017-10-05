@@ -15,6 +15,7 @@ import mang.demo.springmvc.server.entity.TestUser;
 import mang.demo.springmvc.server.entity.TestUserDateFormatter;
 import mang.demo.springmvc.server.service.TestService;
 import mang.demo.springmvc.common.exception.ServiceException;
+import mang.demo.springmvc.common.resulthandle.JsonResult;
 import mang.demo.springmvc.common.resulthandle.StringResult;
 
 
@@ -173,6 +174,29 @@ public class ServerIndexController {
 		user.setCode("hello");
 		user.setDate(new Date());
 		return user;
+	}
+	
+	
+	/**
+	 * 演示返回字符串
+	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/testReturnString/
+	 * */
+	@RequestMapping(value = "/testReturnString", method = RequestMethod.GET)
+	@ResponseBody
+	public String testReturnString(){
+		//TODO 因做了统一结果处理  如果返回String 类型会报错 目前没有解决 
+		return "hello world1";
+	}
+	
+	/**
+	 * 演示返回JsonResult类型
+	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/testReturnJsonResult/
+	 * */
+	@RequestMapping(value = "/testReturnJsonResult", method = RequestMethod.GET)
+	@ResponseBody
+	public JsonResult testReturnJsonResult(){
+		JsonResult<String> jsonResult=new JsonResult<String>("hello");
+		return jsonResult;
 	}
 	
 }
