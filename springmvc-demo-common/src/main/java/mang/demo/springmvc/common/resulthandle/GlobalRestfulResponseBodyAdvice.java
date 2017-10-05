@@ -15,9 +15,11 @@ public class GlobalRestfulResponseBodyAdvice implements ResponseBodyAdvice<Objec
 	@Override
     public Object beforeBodyWrite( Object obj, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> converterType,
         ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        JsonResult value;
+        Object value=null;
         if (obj instanceof JsonResult) {
             value = (JsonResult) obj;
+        }else if(obj instanceof String){
+        	value=obj;
         }
         else {
             value = new JsonResult(obj);
