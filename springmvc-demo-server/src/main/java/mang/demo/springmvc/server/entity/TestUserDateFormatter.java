@@ -10,20 +10,16 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-@Entity
-@Table(name = "t_user")
-public class TestUser {
-	@Id
-	@Column(name = "id", nullable = true)
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class TestUserDateFormatter {
 	private Long id;
 
-	@Column(name = "code", nullable = true)
 	private String code;
 
-	@Column(name = "name", nullable = true)
 	private String name;
 	
-	
+	@JsonFormat(shape =JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
 	private Date date;
 
 	public Long getId() {
@@ -57,6 +53,5 @@ public class TestUser {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
 
 }

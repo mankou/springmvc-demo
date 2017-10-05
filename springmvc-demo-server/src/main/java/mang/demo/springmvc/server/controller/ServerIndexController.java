@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import mang.demo.springmvc.server.entity.TestUser;
+import mang.demo.springmvc.server.entity.TestUserDateFormatter;
 import mang.demo.springmvc.server.service.TestService;
 import mang.demo.springmvc.common.exception.ServiceException;
 import mang.demo.springmvc.common.resulthandle.StringResult;
@@ -34,6 +35,18 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testPost", method = RequestMethod.POST)
 	@ResponseBody
 	public Object testPost(@RequestBody TestUser testUser) {
+		logger.info("[测试]测试post请求");
+		return testUser;
+	}
+	
+	
+	/**
+	 * 演示post请求 主要用于测试程序之间的联通性
+	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/testPostDateFormatter/
+	 */
+	@RequestMapping(value = "/testPostDateFormatter", method = RequestMethod.POST)
+	@ResponseBody
+	public Object testPost(@RequestBody TestUserDateFormatter testUser) {
 		logger.info("[测试]测试post请求");
 		return testUser;
 	}
@@ -144,6 +157,22 @@ public class ServerIndexController {
 	public String testServiceException(){
 		logger.info("[测试]业务异常测试");
 		throw new ServiceException(2, "业务异常");
+	}
+	
+	
+	/**
+	 * 演示json处理-空值处理
+	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/testNullValue/
+	 * */
+	@RequestMapping(value = "/testNullValue", method = RequestMethod.GET)
+	@ResponseBody
+	public TestUser testNullValue(){
+		logger.info("[测试]jackSon空值处理");
+		//这些都是统一配置的,所以这里不需要关心
+		TestUser user=new TestUser();
+		user.setCode("hello");
+		user.setDate(new Date());
+		return user;
 	}
 	
 }

@@ -2,13 +2,13 @@ package mang.demo.springmvc.server;
 
 import java.util.Date;
 
-import mang.demo.springmvc.server.entity.TestUser;
+import mang.demo.springmvc.server.entity.TestUserDateFormatter;
 import mang.util.common.JsonUtil;
 
-public class GenerateData_TestUser {
+public class GenerateData_TestUserFormatter {
 
 	public static void main(String[] args) {
-		TestUser testUser=new TestUser();
+		TestUserDateFormatter testUser=new TestUserDateFormatter();
 		testUser.setCode("1001");
 		testUser.setName("张三");
 		testUser.setId(100L);
