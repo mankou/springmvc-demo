@@ -30,6 +30,18 @@ public class ServerIndexController {
 	
 	
 	/**
+	 * 演示一般的get请求(不查数据库)
+	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/test/
+	 * */
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	@ResponseBody
+	public Date index() {
+		logger.info("[测试]简单测试");
+		Date date=new Date();
+		return date;
+	}
+	
+	/**
 	 * 演示post请求 主要用于测试程序之间的联通性
 	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/testPost/
 	 */
@@ -52,18 +64,6 @@ public class ServerIndexController {
 		return testUser;
 	}
 	
-	
-	/**
-	 * 演示一般的get请求(不查数据库)
-	 * http://127.0.0.1:8080/springmvc-demo-web/serverIndex/test/
-	 * */
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	@ResponseBody
-	public Date index() {
-		logger.info("[测试]简单测试");
-		Date date=new Date();
-		return date;
-	}
 	
 	//TODO 目前还没有解决返回String的问题
 	/**

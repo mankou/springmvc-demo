@@ -1,6 +1,6 @@
 package mang.demo.springmvc.common.resulthandle;
 
-import mang.util.common.JsonUtil;
+import mang.util.json.JsonUtil;
 import net.sf.json.JSONObject;
 
 public class JsonResultUtil {

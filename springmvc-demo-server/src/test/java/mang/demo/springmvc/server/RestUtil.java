@@ -5,10 +5,8 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 
-import mang.util.common.JsonUtil;
-import mang.util.common.TimestampUtil;
+import mang.util.json.JsonUtil;
 
 
 public class RestUtil {

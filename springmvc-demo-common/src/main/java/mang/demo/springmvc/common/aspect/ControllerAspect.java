@@ -23,7 +23,7 @@ import mang.demo.springmvc.common.exception.ServiceException;
 import mang.demo.springmvc.common.service.RequestService;
 import mang.demo.springmvc.common.util.Constant;
 import mang.demo.springmvc.common.util.MyVersion;
-import mang.util.common.JsonUtil;
+import mang.util.json.JsonUtil;
 import mang.util.common.StringUtil;
 import mang.util.common.TimestampUtil;
 

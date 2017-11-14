@@ -3,7 +3,7 @@ package mang.demo.springmvc.server;
 import java.util.Date;
 
 import mang.demo.springmvc.server.entity.TestUserDateFormatter;
-import mang.util.common.JsonUtil;
+import mang.util.json.JsonUtil;
 
 public class GenerateData_TestUserFormatter {
 
