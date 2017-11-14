@@ -2,11 +2,11 @@
 # 工程初始化
 # 在实际项目开发时都有自己的工程名、包名,该脚本帮助你快速将该demo工程修改成你想要的名称
 # 运行方式
-# chmod +s *.sh
+# chmod +x *.sh
 # ./initProject.sh
 
 author=man003@163.com
-version=V1.0-20170526
+version=V1.0-20171114
 
 # 脚本当前路径
 SHELL_PATH=$(cd $(dirname "$0");pwd)
@@ -128,14 +128,14 @@ echo 新groupID $group_id_new
 echo 新包名    $package_new
 echo
 
-echo 正在处理 .git目录
+echo 正在处理 .git目录 有则删除
 gitPath=$PARENT_PATH/.git
 if [ -d ${gitPath} ]
 then
     rm -rf $gitPath
 fi
 
-echo 正在处理 .svn目录
+echo 正在处理 .svn目录 有则删除
 svnPath=$PARENT_PATH/.svn
 if [ -d ${svnPath} ]
 then
@@ -179,9 +179,12 @@ find . -name "pom.xml" |xargs sed -ig "s/$project_name_old/$project_name_new/g"
 find . -name "pom.xmlg" |xargs -n5 rm -rf
 
 echo 正在处理 xml文件
-find . -name "applicationContext-local.xml" |xargs sed -ig "s/$package_old/$package_new/g"
+# 因spring的配置文件名老变 所以这里想写活 如下试验了用如下的方式也好用
+#find . -name "applicationContext-local.xml" |xargs sed -ig "s/$package_old/$package_new/g"
+#find . -name "*applicationContext-local.xmlg" |xargs  -n5 rm -rf
+find . -name "applicationContext-*.xml" |xargs sed -ig "s/$package_old/$package_new/g"
 find . -name "mvc-dispatcher-servlet.xml" |xargs sed -ig "s/$package_old/$package_new/g"
-find . -name "*applicationContext-local.xmlg" |xargs  -n5 rm -rf
+find . -name "*applicationContext-*.xmlg" |xargs  -n5 rm -rf
 find . -name "*mvc-dispatcher-servlet.xmlg" |xargs  -n5 rm -rf
 
 # org.eclipse.wst.common.component
