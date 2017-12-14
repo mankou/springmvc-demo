@@ -15,6 +15,7 @@ import mang.demo.springmvc.server.entity.TestUser;
 import mang.demo.springmvc.server.entity.TestUserDateFormatter;
 import mang.demo.springmvc.server.service.TestService;
 import mang.demo.springmvc.common.exception.ServiceException;
+import mang.demo.springmvc.common.exception.ServiceExceptionEnums;
 import mang.demo.springmvc.common.resulthandle.JsonResult;
 import mang.demo.springmvc.common.resulthandle.StringResult;
 
@@ -157,7 +158,7 @@ public class ServerIndexController {
 	@ResponseBody
 	public String testServiceException(){
 		logger.info("[测试]业务异常测试");
-		throw new ServiceException(2, "业务异常");
+		throw new ServiceException(ServiceExceptionEnums.server_test, "测试");
 	}
 	
 	

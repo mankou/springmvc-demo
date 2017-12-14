@@ -4,6 +4,7 @@ public enum ServiceExceptionEnums implements ExceptionInterface {
 	
 	//公用的错误码
 	common_paramIsEmpty(1000,"参数不能为空"),
+	server_test(2,"测试业务异常"),
 	
 	ok(0,"ok");
 	
