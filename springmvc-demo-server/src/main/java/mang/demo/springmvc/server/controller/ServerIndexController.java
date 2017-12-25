@@ -94,6 +94,19 @@ public class ServerIndexController {
 		return sr;
 	}
 	
+	/**
+	 * 演示直接返回JsonResult格式数据 
+	 * 该方法可以从侧面解决 在JsonResult中的data不能为String的问题
+	 * http://127.0.0.1:8080/jjyl-web/serverIndex/testReturnJsonResultString/
+	 * */
+	@RequestMapping(value = "/testReturnJsonResultString", method = RequestMethod.GET)
+	@ResponseBody
+	public Object testReturnJsonResultString(){
+		JsonResult<String> jsonResult=new JsonResult<String>("hello world");
+		return jsonResult;
+	}
+	
+	
 	
 	/**
 	 * 演示查询数据库并返回一个list
