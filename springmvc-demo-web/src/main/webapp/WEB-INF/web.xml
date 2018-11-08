@@ -8,7 +8,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-         	/WEB-INF/config/applicationContext-local-oracle.xml
+         	/WEB-INF/config/applicationContext-local-mysql.xml
          </param-value>
 	</context-param>
 	<listener>

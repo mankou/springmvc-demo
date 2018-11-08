@@ -31,7 +31,7 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
-		<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/test_sn" />
+		<property name="jdbcUrl" value="jdbc:mysql://192.168.1.50:3306/test" />
 		<property name="user" value="root" />
 		<property name="password" value="root" />
 		<property name="initialPoolSize" value="3" />
@@ -58,6 +58,7 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.use_sql_comments">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
 		</property>
 	</bean>
