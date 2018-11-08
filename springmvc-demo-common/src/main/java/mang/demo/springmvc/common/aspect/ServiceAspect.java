@@ -14,12 +14,11 @@ public class ServiceAspect {
 	
 	
 	//切面  
-//    @Pointcut("execution(* com.neusoft.pszx.review.server.service.impl.RfidServiceImpl.*(..))")
-    @Pointcut("execution(* com.neusoft.pszx.review.server.service..*.*(..))")
-    private void pt(){}
+    @Pointcut("execution(* mang.demo.springmvc.server.service..*.*(..))")
+    private void server(){}
     
   //切点的顺序  
-    @Before("pt()")
+    @Before("server()")
     public void before(JoinPoint jp){  
         System.out.println("service before running......");  
     }  
