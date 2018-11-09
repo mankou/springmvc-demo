@@ -10,19 +10,15 @@ import org.springframework.stereotype.Service;
 @Aspect
 @Service
 public class ServiceAspect {
-    private static Logger logger = Logger.getLogger("log");
+    private static Logger logger=Logger.getLogger("log");
 
-    public static final String CONTROLLER_PONINT_CUT = "execution(* mang.demo.springmvc.server.controller..*.*(..))";
+    //切点
+    @Pointcut("execution(* mang.demo.springmvc.server.service..*.*(..))")
+    private void server(){}
 
-
-    //切面
-    @Pointcut(CONTROLLER_PONINT_CUT)
-    public void server() {
-    }
-
-    //切点的顺序
+    //通知
     @Before("server()")
-    public void before(JoinPoint jp) {
+    public void before(JoinPoint jp){
         System.out.println("service before running......");
     }
 }

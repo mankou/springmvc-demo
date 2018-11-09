@@ -22,6 +22,10 @@
 	<!--自动装配DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter -->
 	<mvc:default-servlet-handler />
 
+	<!-- 启动对@AspectJ注解的支持 -->
+	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
 	<context:component-scan base-package="mang.demo.springmvc.server" />
 	<context:component-scan base-package="mang.demo.springmvc.common" />
 
