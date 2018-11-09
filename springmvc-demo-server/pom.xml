@@ -8,7 +8,7 @@
 
 	<parent>
 		<groupId>mang.demo</groupId>
-		<artifactId>springmvc-demo-parent</artifactId>
+		<artifactId>springmvc-demo</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
