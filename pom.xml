@@ -33,13 +33,6 @@
 				<scope>test</scope>
 			</dependency>
 
-			<dependency>
-				<groupId>mang.util</groupId>
-				<artifactId>mang-util</artifactId>
-				<version>3.0.0-SNAPSHOT</version>
-			</dependency>
-
-
 			<!-- spring begin -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -196,6 +189,13 @@
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>1.18.2</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.7</version>
 			</dependency>
 
 		</dependencies>

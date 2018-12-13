@@ -21,12 +21,6 @@
 			<artifactId>junit</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>mang.util</groupId>
-			<artifactId>mang-util</artifactId>
-		</dependency>
-
-
 		<!-- spring begin -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -136,6 +130,11 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
 		</dependency>
 
 	</dependencies>

@@ -27,11 +27,6 @@
 			<version>${project.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>mang.util</groupId>
-			<artifactId>mang-util</artifactId>
-		</dependency>
-
 	</dependencies>
 
 

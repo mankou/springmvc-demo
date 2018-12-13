@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-import mang.util.common.NullUtil;
+import org.apache.commons.lang3.StringUtils;
 
 public class ParamEmptyExceptionHandle {
 	
@@ -18,7 +18,7 @@ public class ParamEmptyExceptionHandle {
 		    Map.Entry entry = (Map.Entry) iter.next(); 
 		    String key = (String) entry.getKey(); 
 		    String val = (String) entry.getValue();
-		    if(NullUtil.isNull(val)){
+		    if(StringUtils.isEmpty(val)){
 		    	throw new ServiceException(ServiceExceptionEnums.common_paramIsEmpty, key);
 		    }
 		} 
@@ -37,7 +37,7 @@ public class ParamEmptyExceptionHandle {
 		    Map.Entry entry = (Map.Entry) iter.next(); 
 		    String key = (String) entry.getKey(); 
 		    String val = (String) entry.getValue();
-		    if(NullUtil.isNull(val)){
+		    if(StringUtils.isEmpty(val)){
 		    	 return ServiceExceptionEnums.common_paramIsEmpty.getCode();
 		    }
 		} 

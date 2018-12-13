@@ -1,9 +1,8 @@
 package mang.demo.springmvc.server.util;
 
 import mang.demo.springmvc.common.util.Constant;
+import org.apache.commons.lang3.StringUtils;
 
-import mang.util.common.NullUtil;
-import mang.util.common.StringUtil;
 
 public class RunNameUtil {
 	
@@ -12,12 +11,12 @@ public class RunNameUtil {
 	 * */
 	public static String processRunName(String runame){
 		String result=null;
-		if(NullUtil.isNull(runame)){
+		if(StringUtils.isEmpty(runame)){
 			result=Constant.ruid.runame;
 		}else{
 			result=Constant.ruid.runame+"-"+runame;
 		}
-		result=StringUtil.subString(result, 20);
+		result=StringUtils.substring(result, 0,20);
 		return result;
 	}
 }

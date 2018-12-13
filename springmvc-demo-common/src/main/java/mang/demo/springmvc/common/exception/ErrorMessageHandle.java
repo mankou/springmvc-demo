@@ -1,8 +1,7 @@
 package mang.demo.springmvc.common.exception;
 
 
-import mang.util.common.NullUtil;
-
+import org.apache.commons.lang3.StringUtils;
 
 public class ErrorMessageHandle {
 	
@@ -12,7 +11,7 @@ public class ErrorMessageHandle {
 	public static String processErrorMessage(ExceptionInterface exceptionInterface,String runMesage){
 		String baseMessage=exceptionInterface.getMessage();
 		String result;
-		if(NullUtil.isNull(runMesage)){
+		if(StringUtils.isEmpty(runMesage)){
 			result=baseMessage;
 		}else{
 			result=baseMessage+"("+runMesage+")";

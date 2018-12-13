@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import javax.servlet.http.HttpServletRequest;
 
 import lombok.extern.slf4j.Slf4j;
+import mang.demo.springmvc.common.util.JsonUtil;
+import mang.demo.springmvc.common.util.TimestampUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -23,9 +26,7 @@ import mang.demo.springmvc.common.exception.ServiceException;
 import mang.demo.springmvc.common.service.RequestService;
 import mang.demo.springmvc.common.util.Constant;
 import mang.demo.springmvc.common.util.MyVersion;
-import mang.util.json.JsonUtil;
-import mang.util.common.StringUtil;
-import mang.util.common.TimestampUtil;
+
 
 @Slf4j
 @Aspect
@@ -147,9 +148,9 @@ public class ControllerAspect {
 			log.info("[" + classSimpleName + "." + method + "] " + "执行时长: " + runTime+" version:"+MyVersion.getCurrentVersionDesc());
 			
 			//字符串截取
-			inStr=StringUtil.subString(inStr, Constant.defaultMaxLength);
-			outMsg=StringUtil.subString(outMsg, Constant.defaultMaxLength);
-			outData=StringUtil.subString(outData, Constant.defaultMaxLength);
+			inStr=StringUtils.substring(inStr,0,Constant.defaultMaxLength);
+			outMsg=StringUtils.substring(outMsg,0, Constant.defaultMaxLength);
+			outData=StringUtils.substring(outData,0,Constant.defaultMaxLength);
 
 			RequestLog requestLog = new RequestLog();
 			requestLog.setClassSimpleName(classSimpleName);

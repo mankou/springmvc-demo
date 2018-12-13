@@ -3,14 +3,13 @@ package mang.demo.springmvc.server.dao.base;
 import java.io.Serializable;
 import java.util.List;
 
-import org.apache.poi.ss.formula.functions.T;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 @SuppressWarnings({"rawtypes","unchecked"})
-public class HibernateDaoBase extends HibernateDaoSupport  {
+public class HibernateDaoBase<T> extends HibernateDaoSupport  {
 	private Class clazz;
 	
 	@Autowired

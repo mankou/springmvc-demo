@@ -1,12 +1,13 @@
 package mang.demo.springmvc.server;
 
+import mang.demo.springmvc.common.util.JsonUtil;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import mang.util.json.JsonUtil;
 
 
 public class RestUtil {
@@ -16,7 +17,6 @@ public class RestUtil {
 	 * @param url 请求地址
 	 * @param data 请求参数
 	 * @return 服务端返回json格式字符串
-	 * @throws ServiceException
 	 */
 	public static String load(String url, String data) {
 
