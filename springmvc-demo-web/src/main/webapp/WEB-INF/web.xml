@@ -36,18 +36,9 @@
 	
 	<!-- log4j配置 -->
 	<context-param>
-      <param-name> log4jConfigLocation</param-name>
-      <param-value>/WEB-INF/config/log4j.xml</param-value>
-   </context-param>
-   <context-param>
-      <param-name> log4jRefreshInterval</param-name>
-      <param-value>6000</param-value>
-   </context-param>
-    <listener>
-      <listener-class>
-         org.springframework.web.util.Log4jConfigListener
-      </listener-class>
-   </listener>
+		<param-name>log4jConfiguration</param-name>
+		<param-value>/WEB-INF/config/log4j2.xml</param-value>
+	</context-param>
    
    
    <!-- 用于支持：取出请求的ip url等信息 -->

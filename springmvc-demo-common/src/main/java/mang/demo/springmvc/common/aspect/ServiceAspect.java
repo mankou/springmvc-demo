@@ -1,16 +1,16 @@
 package mang.demo.springmvc.common.aspect;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Aspect
 @Service
 public class ServiceAspect {
-    private static Logger logger=Logger.getLogger("log");
 
     //切点
     @Pointcut("execution(* mang.demo.springmvc.server.service..*.*(..))")

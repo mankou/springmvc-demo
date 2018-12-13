@@ -3,7 +3,7 @@ package mang.demo.springmvc.server.controller;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,13 +19,12 @@ import mang.demo.springmvc.common.exception.ServiceExceptionEnums;
 import mang.demo.springmvc.common.resulthandle.JsonResult;
 import mang.demo.springmvc.common.resulthandle.StringResult;
 
-
+@Slf4j
 @Controller
 @RequestMapping(value = "/serverIndex")
 public class ServerIndexController {
 	
-	private static Logger logger=Logger.getLogger("log");
-	
+
 	@Autowired
 	private TestService testService;
 	
@@ -37,7 +36,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	@ResponseBody
 	public Date index() {
-		logger.info("[测试]简单测试");
+		log.info("[测试]简单测试");
 		Date date=new Date();
 		return date;
 	}
@@ -49,7 +48,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testPost", method = RequestMethod.POST)
 	@ResponseBody
 	public Object testPost(@RequestBody TestUser testUser) {
-		logger.info("[测试]测试post请求");
+		log.info("[测试]测试post请求");
 		return testUser;
 	}
 	
@@ -61,7 +60,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testPostDateFormatter", method = RequestMethod.POST)
 	@ResponseBody
 	public Object testPost(@RequestBody TestUserDateFormatter testUser) {
-		logger.info("[测试]测试post请求");
+		log.info("[测试]测试post请求");
 		return testUser;
 	}
 	
@@ -74,7 +73,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testStr", method = RequestMethod.GET)
 	@ResponseBody
 	public String testStr() {
-		logger.info("[测试]返回字符串");
+		log.info("[测试]返回字符串");
 		String str="hello world";
 		return str;
 	}
@@ -89,7 +88,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testObject", method = RequestMethod.GET)
 	@ResponseBody
 	public StringResult testObject() {
-		logger.info("[测试]返回对象");
+		log.info("[测试]返回对象");
 		StringResult sr=new StringResult("hello world");
 		return sr;
 	}
@@ -115,7 +114,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testQueryDbList.query", method = RequestMethod.GET)
 	@ResponseBody
 	public List testQueryDbList(){
-		logger.info("[测试]查询数据库返回list");
+		log.info("[测试]查询数据库返回list");
 		List lis=testService.queryDb();
 		return lis;
 	}
@@ -127,7 +126,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testQueryDbObject.query", method = RequestMethod.GET)
 	@ResponseBody
 	public Object testQueryDbObject(){
-		logger.info("[测试]查询数据库返回对象");
+		log.info("[测试]查询数据库返回对象");
 		List lis=testService.queryDb();
 		Object obj=null;
 		if(lis.size()>0){
@@ -144,7 +143,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testInsertDb.do", method = RequestMethod.GET)
 	@ResponseBody
 	public Object testInsertDb(){
-		logger.info("[测试]插入数据库测试");
+		log.info("[测试]插入数据库测试");
 		TestUser testUser=testService.insertDb();
 		return testUser;
 	}
@@ -157,7 +156,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testRuntimeException", method = RequestMethod.GET)
 	@ResponseBody
 	public String testRuntimeException(){
-		logger.info("[测试]运行时异常测试");
+		log.info("[测试]运行时异常测试");
 		int i=1/0;
 		return "hah";
 	}
@@ -170,7 +169,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testServiceException", method = RequestMethod.GET)
 	@ResponseBody
 	public String testServiceException(){
-		logger.info("[测试]业务异常测试");
+		log.info("[测试]业务异常测试");
 		throw new ServiceException(ServiceExceptionEnums.server_test, "测试");
 	}
 	
@@ -182,7 +181,7 @@ public class ServerIndexController {
 	@RequestMapping(value = "/testNullValue", method = RequestMethod.GET)
 	@ResponseBody
 	public TestUser testNullValue(){
-		logger.info("[测试]jackSon空值处理");
+		log.info("[测试]jackSon空值处理");
 		//这些都是统一配置的,所以这里不需要关心
 		TestUser user=new TestUser();
 		user.setCode("hello");

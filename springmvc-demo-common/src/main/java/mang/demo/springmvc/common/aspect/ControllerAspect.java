@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -27,10 +27,11 @@ import mang.util.json.JsonUtil;
 import mang.util.common.StringUtil;
 import mang.util.common.TimestampUtil;
 
+@Slf4j
 @Aspect
 @Component
 public class ControllerAspect {
-	private static Logger logger = Logger.getLogger("log");
+
 
 	@Autowired
 	private RequestService requestService;
@@ -84,8 +85,8 @@ public class ControllerAspect {
 		String clientUrl = request.getRequestURI();
 		String requestMethod=request.getMethod();
 
-		logger.info("请求ip:" + clientIp + ":" + clientPort);
-		logger.info("请求url:" + clientUrl);
+		log.info("请求ip:" + clientIp + ":" + clientPort);
+		log.info("请求url:" + clientUrl);
 
 		Class clazz = pjp.getTarget().getClass();
 		String className = clazz.getName(); // 类名全写(包含包名)
@@ -109,11 +110,11 @@ public class ControllerAspect {
 		}
 
 		try {
-			logger.info("[" + classSimpleName + "." + method + "] " + "入参: " + inStr);
+			log.info("[" + classSimpleName + "." + method + "] " + "入参: " + inStr);
 			Object result = pjp.proceed();
 			outMsg = "ok";
 			outData = JsonUtil.obj2String(result); // 出参
-			logger.info("[" + classSimpleName + "." + method + "] " + "出参-正常返回: " + outMsg);
+			log.info("[" + classSimpleName + "." + method + "] " + "出参-正常返回: " + outMsg);
 			returnType = Constant.returnType.returnOk;
 			return result;
 		} catch (Exception e) {
@@ -121,16 +122,16 @@ public class ControllerAspect {
 				ServiceException serviceException = (ServiceException) e;
 				Object data = serviceException.getData();
 				String dataStr = JsonUtil.obj2String(data);
-				logger.info("[" + classSimpleName + "." + method + "] " + "出参-业务异常: " + "错误码:"
+				log.info("[" + classSimpleName + "." + method + "] " + "出参-业务异常: " + "错误码:"
 						+ serviceException.getCode() + " 异常信息: " + serviceException.getMessage());
-				logger.info("[" + classSimpleName + "." + method + "] " + "出参-业务异常: " + "返回数据: " + dataStr);
+				log.info("[" + classSimpleName + "." + method + "] " + "出参-业务异常: " + "返回数据: " + dataStr);
 
 				returnType = Constant.returnType.serviceException;
 				outMsg = serviceException.getMessage();
 				outCode = serviceException.getCode();
 				outData = dataStr;
 			} else {
-				logger.info("[" + classSimpleName + "." + method + "] " + "出参-运行异常: " + "异常信息: " + e.getMessage());
+				log.info("[" + classSimpleName + "." + method + "] " + "出参-运行异常: " + "异常信息: " + e.getMessage());
 
 				returnType = Constant.returnType.runtimeError;
 				outMsg = e.getMessage();
@@ -143,7 +144,7 @@ public class ControllerAspect {
 
 			Timestamp endDate = TimestampUtil.getCurrentTime();
 			Long runTime = endDate.getTime() - startDate.getTime();
-			logger.info("[" + classSimpleName + "." + method + "] " + "执行时长: " + runTime+" version:"+MyVersion.getCurrentVersionDesc());
+			log.info("[" + classSimpleName + "." + method + "] " + "执行时长: " + runTime+" version:"+MyVersion.getCurrentVersionDesc());
 			
 			//字符串截取
 			inStr=StringUtil.subString(inStr, Constant.defaultMaxLength);

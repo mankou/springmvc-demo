@@ -19,7 +19,6 @@
 		<springmvc-demo.version>${project.version}</springmvc-demo.version>
 		<spring.version>4.3.8.RELEASE</spring.version>
 		<hibernate.version>4.3.10.Final</hibernate.version>
-		<log4j.version>1.2.17</log4j.version>
 		<jackson-databind.version>2.9.6</jackson-databind.version>
 		<jackson-core.version>2.9.6</jackson-core.version>
 		<jackson-annotations.version>2.9.6</jackson-annotations.version>
@@ -38,13 +37,6 @@
 				<groupId>mang.util</groupId>
 				<artifactId>mang-util</artifactId>
 				<version>3.0.0-SNAPSHOT</version>
-			</dependency>
-
-
-			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>${log4j.version}</version>
 			</dependency>
 
 
@@ -154,6 +146,58 @@
 				<artifactId>jackson-annotations</artifactId>
 				<version>${jackson-annotations.version}</version>
 			</dependency>
+
+			<!-- log start -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.21</version>
+			</dependency>
+
+			<!--如下2个是log4j2的包 -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>2.7</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>2.7</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-web</artifactId> <!--如果是web工程则需要添加-->
+				<version>2.7</version>
+			</dependency>
+
+			<!-- slf4j针对log4j2 的桥接包 -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>2.7</version>
+			</dependency>
+
+			<!--log4j2针对common-log的桥接包 -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-jcl</artifactId>
+				<version>2.7</version>
+			</dependency>
+
+			<!--log4j2针对log4j 1的桥接包 -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-1.2-api</artifactId>
+				<version>2.7</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.2</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
